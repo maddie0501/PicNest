@@ -73,12 +73,19 @@ function HomePage() {
     : image;
 
   return (
-    <div className="flex h-screen">
-      <nav className="flex flex-col justify-start box-border size-20 border-r-2 border-gray-300 h-screen  ">
-        <img src={Logo} alt="Logo" className="p-5 size-20 cursor-pointer" />
-       
+    <div className="flex">
+      <nav
+        className=" fixed bottom-0 w-full h-20 flex flex-row justify-around  border-gray-300 bg-white
+              lg:flex-col lg:flex  lg:top-0 left-0 lg:w-20 lg:h-full  lg:border-r-2 "
+      >
+        <img
+          src={Logo}
+          alt="Logo"
+          className="hidden lg:block p-5 size-20 cursor-pointer"
+        />
+
         <img src={Home} alt="Home" className="p-5 size-20 cursor-pointer" />
-      
+
         <img
           src={Explore}
           alt="Explore"
@@ -104,33 +111,35 @@ function HomePage() {
         </div>
       </nav>
       {/*search bar */}
-      <div className="flex-1 p-6 flex-row">
-        <form action="">
-          <div className="relative">
+      <div className=" p-6">
+        <div className="fixed top-0 left-0 lg:ml-20 w-full z-50 bg-white px-6 pt-4 pb-2 shadow ">
+          <form className="relative">
             <img
               src={Search}
               alt="search icon"
-              className="absolute left-3 top-3 "
+              className="absolute left-3 top-3"
             />
             <input
               type="text"
               name="name"
               placeholder="Search"
-              className="bg-gray-100  w-full p-3 pl-10 rounded-xl"
+              className="bg-gray-100 w-full p-3 pl-10 rounded-xl"
               value={search}
               onChange={(e) => debounceSearch(e, debounceTimeout)}
             />
-          </div>
-        </form>
+          </form>
+        </div>
 
-        <div className="columns-2 md:columns-4 lg:columns-6 gap-4 pt-3">
-          {loading ? (
-            <h4>Loading images...</h4>
-          ) : (
-            filterimages.map((photo) => (
-              <ImageCard key={photo.id} photo={photo} />
-            ))
-          )}
+        <div className="flex-1 overflow-y-auto pt-14">
+          <div className="columns-2 md:columns-4 lg:columns-6 gap-4 pl-20">
+            {loading ? (
+              <h4>Loading images...</h4>
+            ) : (
+              filterimages.map((photo) => (
+                <ImageCard key={photo.id} photo={photo} />
+              ))
+            )}
+          </div>
         </div>
       </div>
     </div>

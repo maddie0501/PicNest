@@ -13,6 +13,7 @@ function LoginPage() {
     birthdate: "",
   });
 
+
   const handleLogin = () => {
     navigate("/");
   };
@@ -60,7 +61,8 @@ function LoginPage() {
                 username: formData.username,
                 password: formData.password
             },
-        ];
+          ];
+          
 
         localStorage.setItem("users", JSON.stringify(updatedUsers));
         //   console.log(updatedUsers,'exe', existingUsers)
@@ -101,8 +103,8 @@ function LoginPage() {
 
   return (
     <div>
-      <nav className="flex flex-row ">
-        <div className="flex flex-row p-5 justify-start  ">
+      <nav className=" hidden lg:flex flex-row ">
+        <div className="flex flex-row p-5 justify-start  pb-10">
           <img src={Logo} alt="logo" className="w-8 h-8" />
           <h2 className="font-bold text-red-700  text-lg w-full">PicNest</h2>
           <h2 className="text-lg font-bold pl-5">Explore</h2>
@@ -130,15 +132,15 @@ function LoginPage() {
       </nav>
 
       <div className="flex justify-between relative">
-        <div className="relative w-full h-160">
+        <div className="relative w-full h-screen">
           <img
             src={Bkgimg}
             alt="img"
-            className="w-full h-full object-cover  "
+            className="w-screen h-screen object-cover  "
           />
           <div className="absolute inset-0 bg-black/40"></div>
 
-          <h1 className=" text-6xl absolute top-50 left-70 text-white font-bold ">
+          <h1 className=" hidden lg:block text-6xl absolute top-50 left-70 text-white font-bold ">
             Log in to get
             <br />
             your Ideas

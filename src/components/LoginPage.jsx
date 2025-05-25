@@ -4,6 +4,7 @@ import Logo from "../assets/Logoicon.png";
 import Bkgimg from "../assets/background.jpg";
 import { useNavigate, Link } from "react-router-dom";
 
+
 function LoginPage() {
   const { enqueueSnackbar } = useSnackbar();
 
@@ -11,6 +12,7 @@ function LoginPage() {
     username: "",
     password: "",
   });
+ 
 
   const handleLogin = () => {
     navigate("/");
@@ -86,7 +88,7 @@ function LoginPage() {
 
   return (
     <div>
-      <nav className="flex flex-row ">
+      <nav className="hidden lg:flex flex-row ">
         <div className="flex flex-row p-5 justify-start mt-2 ">
           <img src={Logo} alt="logo" className="w-8 h-8" />
           <h2 className="font-bold text-red-700  text-lg w-full">PicNest</h2>
@@ -123,7 +125,7 @@ function LoginPage() {
           />
           <div className="absolute inset-0 bg-black/40"></div>
 
-          <h1 className=" text-6xl absolute top-50 left-70 text-white font-bold">
+          <h1 className=" hidden lg:text-6xl absolute top-50 left-70 text-white font-bold">
             Log in to get
             <br />
             your Ideas
