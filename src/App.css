@@ -1,4 +1,26 @@
 @import "tailwindcss";
+
+* {
+  @apply transition-colors duration-200;
+}
+/* 
+@theme {
+  --bg-color:#181818;
+  --color:#fff;
+
+}
+
+/* .dark {
+   --bg-color:#fff;
+  --color:#181818;
+
+} */
+
+/* body {
+  background-color: var(--bg-color);
+  color:var(--color)
+} */
+
 /* #root {
   max-width: 1280px;
   margin: 0 auto;

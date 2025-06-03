@@ -13,7 +13,6 @@ function LoginPage() {
     birthdate: "",
   });
 
-
   const handleLogin = () => {
     navigate("/");
   };
@@ -57,12 +56,11 @@ function LoginPage() {
 
         const updatedUsers = [
           ...existingUsers,
-            {
-                username: formData.username,
-                password: formData.password
-            },
-          ];
-          
+          {
+            username: formData.username,
+            password: formData.password,
+          },
+        ];
 
         localStorage.setItem("users", JSON.stringify(updatedUsers));
         //   console.log(updatedUsers,'exe', existingUsers)
@@ -103,19 +101,19 @@ function LoginPage() {
 
   return (
     <div>
-      <nav className=" hidden lg:flex flex-row ">
-        <div className="flex flex-row p-5 justify-start  pb-10">
+      <nav className="hidden lg:flex flex-row  ">
+        <div className="flex flex-row p-5 justify-start  mt-2">
           <img src={Logo} alt="logo" className="w-8 h-8" />
           <h2 className="font-bold text-red-700  text-lg w-full">PicNest</h2>
           <h2 className="text-lg font-bold pl-5">Explore</h2>
         </div>
-        <div className="flex justify-end p-5 w-full gap-6 items-center">
+        <div className="flex justify-end p-5 w-full gap-6 items-center mt-2">
           <a href="">About</a>
           <a href="">Businesses</a>
           <a href="">Create</a>
           <a href="">News</a>
           <button
-            className="bg-amber-700 p-3 rounded-xl text-white cursor-pointer"
+            className="bg-red-700 p-3 rounded-xl text-white cursor-pointer"
             onClick={handleLogin}
             type="button"
           >
@@ -147,7 +145,7 @@ function LoginPage() {
           </h1>
         </div>
 
-        <div className="box-content rounded-xl bg-white right-30 absolute top-0 w-100 h-100 gap-5 pt-5 pb-20">
+        <div className="box-content rounded-xl bg-white right-30 absolute top-0 w-100 h-100 gap-5 pt-5 pb-20  ">
           <img src={Logo} alt="Logo" className="mx-auto" />
           <h1 className="text-3xl text-center">Welcome to PicNest</h1>
           <p className="text-center"> Find new ideas to try</p>
@@ -196,7 +194,7 @@ function LoginPage() {
             <div className="flex justify-center p-2">
               <button
                 onClick={() => signup(formData)}
-                className="bg-amber-700  pl-10 pr-10 py-1 rounded-xl text-white flex  cursor-pointer"
+                className="bg-red-700  pl-10 pr-10 py-1 rounded-xl text-white flex  cursor-pointer"
                 type="button"
               >
                 {loading}
