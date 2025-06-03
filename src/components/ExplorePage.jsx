@@ -116,7 +116,7 @@ function ExplorePage() {
 
 
   return (
-    <div>
+    <div className="flex">
       <nav
       className={`fixed bottom-0 w-full h-20 flex flex-row justify-around border-gray-300 z-20
     lg:flex-col lg:top-0 left-0 lg:w-20 lg:h-full lg:border-r-2
@@ -126,6 +126,7 @@ function ExplorePage() {
           src={Logo}
           alt="Logo"
           className="hidden lg:block p-5 size-20 cursor-pointer"
+          onClick={() => window.location.reload()}
         />
 
         <Link to="/home">
@@ -158,8 +159,8 @@ function ExplorePage() {
         </div>
       </nav>
 
-      <div className={`p-6 ${darkMode ? 'bg-neutral-700 text-white' : 'bg-white text-black'}`}>
-        <div className={`fixed top-0 left-0 lg:pl-24 w-full z-10  px-6 pt-4 pb-2 ${darkMode ? 'bg-neutral-700 text-white' : 'bg-white text-black'}`}>
+      <div className={`h-full w-full ${darkMode ? 'bg-neutral-700 text-white' : 'bg-white text-black'}`}>
+        <div className={`fixed top-0 left-0 lg:pl-24 w-full  z-10  px-6 pt-4 pb-2 ${darkMode ? 'bg-neutral-700 text-white' : 'bg-white text-black'}`}>
           <form className="relative">
             <img
               src={Search}
@@ -177,7 +178,7 @@ function ExplorePage() {
           </form>
         </div>
 
-        <div className={`pt-20 lg:ml-24 ${darkMode ? 'bg-neutral-700 text-white' : 'bg-white text-black'}`}>
+        <div className={`pt-20 w-full pb-20 lg:ml-24 ${darkMode ? 'bg-neutral-700 text-white' : 'bg-white text-black'}`}>
          
           <div className="flex flex-col justify-center text-center">
             <h6 className="text-xl font-bold  mb-1">{loading} {todayDate}</h6>
@@ -185,7 +186,7 @@ function ExplorePage() {
           </div>
 
           {!selectedGenre ? (
-            <div className="grid grid-cols-4 gap-4 mb-6">
+            <div className=" grid grid-cols-4 gap-4 mb-6 pb-10">
               <div className="col-start-2 col-span-2">
                 <div className="grid grid-cols-2 gap-4 ">
                   {getRandomExploreCards.map((img) => (

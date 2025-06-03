@@ -10,7 +10,8 @@ function Settings({ isOpen, onClose }) {
       className="fixed inset-0 z-50 bg-opacity-30 flex items-center justify-center"
       onClick={onClose}
     >
-      <div className="absolute bottom-20 left-24 z-[999]  bg-white text-black  p-6 rounded-xl shadow-xl w-96">
+      <div className={`absolute bottom-20 left-24 z-[999 text-black  p-6 rounded-xl shadow-xl w-96  ${
+              darkMode ? "bg-neutral-700 text-white" : "bg-white text-black"}`}>
         <button className="pr-4 cursor-pointer p-3  hover:bg-gray-100 w-full rounded-xl text-start">
           Settings
         </button>

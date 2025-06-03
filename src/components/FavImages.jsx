@@ -16,7 +16,7 @@ function LikedPage() {
 
   return (
     <div
-      className={`p-4 flex relative  ${
+      className={`p-4 flex relative h-screen w-screen  ${
         darkMode ? "bg-neutral-700 text-white" : "bg-white text-black"
       }`}
     >
@@ -29,6 +29,7 @@ function LikedPage() {
           src={Logo}
           alt="Logo"
           className="hidden lg:block p-5 size-20 cursor-pointer"
+           onClick={() => window.location.reload()}
         />
 
         <Link to="/home">
@@ -75,12 +76,12 @@ function LikedPage() {
         </div>
       </nav>
       <div
-        className={`absolute left-20 ${
+        className={`absolute lg:left-20 ${
           darkMode ? "bg-neutral-700 text-white" : "bg-white text-black"
         }`}
       >
         <h1
-          className={`text-2xl font-bold pl-10 mb-4 ${
+          className={`text-2xl font-bold pl-10 mb-4  ${
             darkMode ? "bg-neutral-700 text-white" : "bg-white text-black"
           }`}
         >
@@ -88,10 +89,10 @@ function LikedPage() {
         </h1>
 
         {favImgs.length === 0 ? (
-          <p>No liked images yet.</p>
+          <p className="pl-10 mb-4">No liked images yet.</p>
         ) : (
           <div
-            className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 pl-10 h-screen w-full ${
+            className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 pl-10 pr-10 ${
               darkMode ? "bg-neutral-700 text-white" : "bg-white text-black"
             }`}
           >

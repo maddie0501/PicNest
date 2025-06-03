@@ -87,6 +87,7 @@ function HomePage() {
           src={Logo}
           alt="Logo"
           className="hidden lg:block p-5 size-20 cursor-pointer"
+          onClick={() => window.location.reload()}
         />
         <Link to="/home">
           <img
