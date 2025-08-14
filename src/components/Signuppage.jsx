@@ -67,7 +67,7 @@ function LoginPage() {
 
         enqueueSnackbar("Registered successfully", { variant: "success" });
         setloading(false);
-        navigate("/signup");
+        navigate("/");
       } catch (error) {
         if (error.response)
           enqueueSnackbar("An unexpected error occurred", { variant: "error" });
