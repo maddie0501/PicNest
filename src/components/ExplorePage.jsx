@@ -178,7 +178,7 @@ function ExplorePage() {
           </form>
         </div>
 
-        <div className={`pt-20 w-full pb-20 lg:ml-24 ${darkMode ? 'bg-neutral-700 text-white' : 'bg-white text-black'}`}>
+        <div className={`pt-20 pb-20 w-full lg:w-[calc(100%-6rem)] lg:ml-24 ${darkMode ? 'bg-neutral-700 text-white' : 'bg-white text-black'}`}>
          
           <div className="flex flex-col justify-center text-center">
             <h6 className="text-xl font-bold  mb-1">{loading} {todayDate}</h6>
@@ -209,11 +209,11 @@ function ExplorePage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {filterimages.map((img) => (
                 <div key={img.id} className="p-2">
-                  <div className="relative rounded-2xl overflow-hidden group shadow hover:shadow-lg transition">
+                  <div className="relative rounded-2xl overflow-hidden group shadow hover:shadow-lg h-40 w-full transition">
                     <img
                       src={img.urls.regular}
                       alt={img.alt_description}
-                      className="w-full h-40 object-cover group-hover:brightness-80 transition duration-300"
+                      className="w-full h-full object-cover group-hover:brightness-80 transition duration-300"
                     />
                     <img
                       src={like}

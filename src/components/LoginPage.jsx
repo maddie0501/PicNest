@@ -3,6 +3,7 @@ import { useSnackbar } from "notistack";
 import Logo from "../assets/Logoicon.png";
 import Bkgimg from "../assets/background.jpg";
 import { useNavigate, Link } from "react-router-dom";
+import { Menu, X } from "lucide-react";
 
 function LoginPage() {
   const { enqueueSnackbar } = useSnackbar();
@@ -20,6 +21,7 @@ function LoginPage() {
     navigate("/signup");
   };
   const [loading, setloading] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const navigate = useNavigate();
 
@@ -86,13 +88,13 @@ function LoginPage() {
 
   return (
     <div>
-      <nav className="hidden lg:flex flex-row ">
-        <div className="flex flex-row p-5 justify-start mt-2">
+      {/* <nav className=" lg:flex flex-row p-2">
+        <div className="flex flex-row p-1 justify-start mt-2">
           <img src={Logo} alt="logo" className="w-8 h-8" />
           <h2 className="font-bold text-red-700  text-lg">PicNest</h2>
           <h2 className="text-lg font-bold pl-5">Explore</h2>
         </div>
-        <div className="flex justify-end p-5 w-full gap-6 items-center ">
+        <div className="flex justify-end p-1 w-full gap-6 items-center ">
           <a href="">About</a>
           <a href="">Businesses</a>
           <a href="">Create</a>
@@ -112,6 +114,69 @@ function LoginPage() {
             Sign Up
           </button>
         </div>
+      </nav> */}
+
+      <nav className="bg-white shadow-md">
+        <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
+          {/* Left - Logo */}
+          <div className="flex items-center gap-2">
+            <img src={Logo} alt="logo" className="w-8 h-8" />
+            <h2 className="font-bold text-red-700 text-lg">PicNest</h2>
+          </div>
+
+          {/* Desktop Menu */}
+          <div className="hidden lg:flex justify-end p-3 w-full gap-4 xl:gap-6 items-center text-sm xl:text-base">
+            <a href="">About</a>
+            <a href="">Businesses</a>
+            <a href="">Create</a>
+            <a href="">News</a>
+            <button
+              className="bg-red-700 px-4 py-2 rounded-xl text-white cursor-pointer"
+              type="button"
+              onClick={handleLogin}
+            >
+              Log in
+            </button>
+            <button
+              className="bg-gray-300 px-4 py-2 rounded-xl text-black cursor-pointer"
+              type="button"
+              onClick={handleSignup}
+            >
+              Sign Up
+            </button>
+          </div>
+
+          {/* Mobile Hamburger Icon */}
+          <div className="lg:hidden">
+            <button onClick={() => setMenuOpen(!menuOpen)}>
+              {menuOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        {menuOpen && (
+          <div className="lg:hidden flex flex-col gap-3 p-4 border-t bg-white text-sm">
+            <a href="">About</a>
+            <a href="">Businesses</a>
+            <a href="">Create</a>
+            <a href="">News</a>
+            <button
+              className="bg-red-700 px-4 py-2 rounded-xl text-white cursor-pointer"
+              type="button"
+              onClick={handleLogin}
+            >
+              Log in
+            </button>
+            <button
+              className="bg-gray-300 px-4 py-2 rounded-xl text-black cursor-pointer"
+              type="button"
+              onClick={handleSignup}
+            >
+              Sign Up
+            </button>
+          </div>
+        )}
       </nav>
 
       <div className="flex justify-between relative">
@@ -119,9 +184,9 @@ function LoginPage() {
           <img
             src={Bkgimg}
             alt="img"
-            className="w-full h-full object-cover  "
+            className="w-full h-screen object-cover  "
           />
-          <div className="absolute inset-0 bg-black/40"></div>
+          <div className="absolute inset-0 bg-black/40 h-screen"></div>
 
           <h1 className=" hidden lg:text-6xl absolute top-50 left-70 text-white font-bold">
             Log in to get
@@ -130,7 +195,7 @@ function LoginPage() {
           </h1>
         </div>
 
-        <div className="box-content rounded-xl bg-white right-30 absolute top-0 w-100 h-100 gap-5 pt-5  ">
+        <div className="box-content rounded-xl bg-white left-1/2 absolute top-1/2 transform -translate-x-1/2  -translate-y-1/2 max-w-md w-full sm:w-96 gap-5 pt-5 shadow-lg ">
           <img src={Logo} alt="Logo" className="mx-auto" />
           <h1 className="text-3xl text-center">Welcome to PicNest</h1>
           <form onSubmit={handleSubmit}>
