@@ -9,7 +9,7 @@ import Search from "../assets/search.png";
 import { Link } from "react-router-dom";
 import like from "../assets/heart.png";
 import SettingsModal from "../components/Settings";
-import { useTheme } from './ThemeContext';
+import { useTheme } from "./ThemeContext";
 
 function ExplorePage() {
   const [explore, setExplore] = useState([]);
@@ -33,7 +33,6 @@ function ExplorePage() {
 
     setdebounceTimeout(Timeout);
   };
-
 
   useEffect(() => {
     const fetchimages = async () => {
@@ -105,22 +104,18 @@ function ExplorePage() {
     localStorage.setItem("favImgs", JSON.stringify(updatedFavs));
   };
 
-  const todayDate =
-    new Date().toLocaleDateString("en-US", {
-    
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-
-    });
-
+  const todayDate = new Date().toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
 
   return (
     <div className="flex">
       <nav
-      className={`fixed bottom-0 w-full h-20 flex flex-row justify-around border-gray-300 z-20
+        className={`fixed bottom-0 w-full h-20 flex flex-row justify-around border-gray-300 z-20
     lg:flex-col lg:top-0 left-0 lg:w-20 lg:h-full lg:border-r-2
-    ${darkMode ? 'bg-neutral-700 text-white' : 'bg-white text-black'}`}
+    ${darkMode ? "bg-neutral-700 text-white" : "bg-white text-black"}`}
       >
         <img
           src={Logo}
@@ -130,14 +125,22 @@ function ExplorePage() {
         />
 
         <Link to="/home">
-          <img src={Home} alt="Home" className={`p-5 size-20 cursor-pointer  ${darkMode ? 'invert': ''}`} />
+          <img
+            src={Home}
+            alt="Home"
+            className={`p-5 size-20 cursor-pointer  ${
+              darkMode ? "invert" : ""
+            }`}
+          />
         </Link>
 
         <Link to="/explore">
           <img
             src={Explore}
             alt="Explore"
-            className={`p-5 size-20 cursor-pointer  ${darkMode ? 'invert': ''}`}
+            className={`p-5 size-20 cursor-pointer  ${
+              darkMode ? "invert" : ""
+            }`}
           />
         </Link>
 
@@ -145,22 +148,37 @@ function ExplorePage() {
           <img
             src={Create}
             alt="Create"
-            className={`p-5 size-20 cursor-pointer  ${darkMode ? 'invert': ''}`}
+            className={`p-5 size-20 cursor-pointer  ${
+              darkMode ? "invert" : ""
+            }`}
           />
         </Link>
         <div className="flex flex-col justify-end">
           <img
             src={Settings}
             alt="Settings"
-            className={`p-5 size-20 cursor-pointer  ${darkMode ? 'invert': ''}`}
-             onClick={() => setSettingsOpen(true)}
+            className={`p-5 size-20 cursor-pointer  ${
+              darkMode ? "invert" : ""
+            }`}
+            onClick={() => setSettingsOpen(true)}
           />
-            <SettingsModal isOpen={settingsOpen} onClose={() => setSettingsOpen(false)} />
+          <SettingsModal
+            isOpen={settingsOpen}
+            onClose={() => setSettingsOpen(false)}
+          />
         </div>
       </nav>
 
-      <div className={`h-full w-full ${darkMode ? 'bg-neutral-700 text-white' : 'bg-white text-black'}`}>
-        <div className={`fixed top-0 left-0 lg:pl-24 w-full  z-10  px-6 pt-4 pb-2 ${darkMode ? 'bg-neutral-700 text-white' : 'bg-white text-black'}`}>
+      <div
+        className={`h-full w-full ${
+          darkMode ? "bg-neutral-700 text-white" : "bg-white text-black"
+        }`}
+      >
+        <div
+          className={`fixed top-0 left-0 lg:pl-24 w-full  z-10  px-6 pt-4 pb-2 ${
+            darkMode ? "bg-neutral-700 text-white" : "bg-white text-black"
+          }`}
+        >
           <form className="relative">
             <img
               src={Search}
@@ -171,18 +189,27 @@ function ExplorePage() {
               type="text"
               name="name"
               placeholder="Search"
-              className={`text-black w-full p-3 pl-10 rounded-xl ${darkMode ? "bg-neutral-800 text-white" : "bg-gray-100 text-black"}`}
+              className={`text-black w-full p-3 pl-10 rounded-xl ${
+                darkMode
+                  ? "bg-neutral-800 text-white"
+                  : "bg-gray-100 text-black"
+              }`}
               value={search}
               onChange={(e) => debounceSearch(e, debounceTimeout)}
             />
           </form>
         </div>
 
-        <div className={`pt-20 pb-20 w-full lg:w-[calc(100%-6rem)] lg:ml-24 ${darkMode ? 'bg-neutral-700 text-white' : 'bg-white text-black'}`}>
-         
+        <div
+          className={`pt-20 pb-20 w-full lg:w-[calc(100%-6rem)] lg:ml-24 ${
+            darkMode ? "bg-neutral-700 text-white" : "bg-white text-black"
+          }`}
+        >
           <div className="flex flex-col justify-center text-center">
-            <h6 className="text-xl font-bold  mb-1">{loading} {todayDate}</h6>
-          <h2 className="text-4xl font-bold mb-4">Stay Inspired</h2>
+            <h6 className="text-xl font-bold  mb-1">
+              {loading} {todayDate}
+            </h6>
+            <h2 className="text-4xl font-bold mb-4">Stay Inspired</h2>
           </div>
 
           {!selectedGenre ? (
